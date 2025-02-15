@@ -26,15 +26,22 @@ const App = () => {
         palette: {
           mode,
           primary: {
-            main: mode === "light" ? "#1976d2" : "#90caf9", // Adjustable
+            main: mode === "light" ? "#4CAF50" : "#FF9800", // Light: Green, Dark: Orange
+          },
+          secondary: {
+            main: mode === "light" ? "#FFA726" : "#03A9F4", // Light: Orange, Dark: Bright Blue
           },
           background: {
-            default: mode === "light" ? "#ffffff" : "#121212",
-            paper: mode === "light" ? "#f5f5f5" : "#1e1e1e",
+            default: mode === "light" ? "#F3E5AB" : "#121212", // Light: Warm Beige, Dark: Deep Black
+            paper: mode === "light" ? "#FFF3E0" : "#1E1E1E", // Light: Light Orange, Dark: Dark Gray
           },
           text: {
-            primary: mode === "light" ? "#000000" : "#ffffff",
+            primary: mode === "light" ? "#37474F" : "#FFFFFF", // Light: Deep Blue, Dark: White
+            secondary: mode === "light" ? "#FF7043" : "#81D4FA", // Light: Warm Orange, Dark: Light Blue
           },
+        },
+        typography: {
+          fontFamily: "Arial, sans-serif",
         },
       }),
     [mode]
@@ -47,7 +54,7 @@ const App = () => {
         <AppBar position="static" color="primary">
           <Toolbar>
             <Typography variant="h6" sx={{ flexGrow: 1 }}>
-              My Themed App
+              Themed App
             </Typography>
             <IconButton color="inherit" onClick={colorMode.toggleColorMode}>
               {mode === "dark" ? <Brightness7 /> : <Brightness4 />}
@@ -62,7 +69,6 @@ const App = () => {
           <Tabs value={tabIndex} onChange={(e, newValue) => setTabIndex(newValue)}>
             <Tab label="Tab 1" />
             <Tab label="Tab 2" />
-            <Tab label="Tab 3" />
           </Tabs>
         </Resizable>
       </ThemeProvider>
