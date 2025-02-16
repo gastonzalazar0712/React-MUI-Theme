@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { createTheme, ThemeProvider, CssBaseline, useMediaQuery } from "@mui/material";
-import { AppBar, Toolbar, Typography, IconButton, Tabs, Tab } from "@mui/material";
+import { AppBar, Toolbar, Typography, IconButton, Tabs, Tab, Button, Card, CardContent } from "@mui/material";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 import { Resizable } from "re-resizable";
 
@@ -26,18 +26,17 @@ const App = () => {
         palette: {
           mode,
           primary: {
-            main: mode === "light" ? "#4CAF50" : "#FF9800", // Light: Green, Dark: Orange
+            main: mode === "light" ? "#3C91E6" : "#9B5DE5", // Light: Bright Blue, Dark: Vibrant Purple
           },
           secondary: {
-            main: mode === "light" ? "#FFA726" : "#03A9F4", // Light: Orange, Dark: Bright Blue
+            main: mode === "light" ? "#FF7F11" : "#F15BB5", // Light: Warm Orange, Dark: Hot Pink
           },
           background: {
-            default: mode === "light" ? "#F3E5AB" : "#121212", // Light: Warm Beige, Dark: Deep Black
-            paper: mode === "light" ? "#FFF3E0" : "#1E1E1E", // Light: Light Orange, Dark: Dark Gray
+            default: mode === "light" ? "#F5F1ED" : "#000000", // Light: Soft Warm Beige, Dark: Deep Black
+            paper: mode === "light" ? "#FAE3D9" : "#1A1A1A", // Light: Pale Orange, Dark: Dark Grey
           },
           text: {
-            primary: mode === "light" ? "#37474F" : "#FFFFFF", // Light: Deep Blue, Dark: White
-            secondary: mode === "light" ? "#FF7043" : "#81D4FA", // Light: Warm Orange, Dark: Light Blue
+            primary: mode === "light" ? "#232323" : "#FFFFFF", // Light: Dark Grey, Dark: White
           },
         },
         typography: {
@@ -71,6 +70,18 @@ const App = () => {
             <Tab label="Tab 2" />
           </Tabs>
         </Resizable>
+        <Card sx={{ m: 2, p: 2, backgroundColor: "background.paper" }}>
+          <CardContent>
+            <Typography variant="h6" color="primary">Primary Color Example</Typography>
+            <Typography variant="body1" color="secondary">Secondary Color Example</Typography>
+            <Button variant="contained" color="primary" sx={{ mt: 2 }}>
+              Primary Button
+            </Button>
+            <Button variant="contained" color="secondary" sx={{ mt: 2, ml: 2 }}>
+              Secondary Button
+            </Button>
+          </CardContent>
+        </Card>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
